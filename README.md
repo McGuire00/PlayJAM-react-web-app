@@ -3,5 +3,6 @@
 * User can search Spotify music library and create custom playlist that will be saved to their account
 
 # Preview
-https://github.com/McGuire00/PlayJAM-react-web-app/blob/main/preview.png
+![alt text](https://github.com/McGuire00/PlayJAM-react-web-app/blob/main/preview.png)
+
 
