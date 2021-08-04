@@ -5,4 +5,9 @@
 # Preview
 ![alt text](https://github.com/McGuire00/PlayJAM-react-web-app/blob/main/preview.png)
 
+#Installation
+cd PlayJAM-react-web-app
+npm install
+npm start
+
 
