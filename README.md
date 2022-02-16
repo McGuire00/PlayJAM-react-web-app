@@ -1,5 +1,5 @@
 # PlayJAM-react-web-app
-* Web app with integrated Spotify functionality.
+* Web app with integrated Spotify functionality through Spotify's API
 * User can search Spotify music library and create custom playlists that will be saved to their account
 
 # Preview
@@ -9,5 +9,3 @@
 * cd PlayJAM-react-web-app
 * npm install
 * npm start
-
-
