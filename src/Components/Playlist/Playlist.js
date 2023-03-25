@@ -4,7 +4,7 @@ import "./Playlist.css";
 import TrackList from "../TrackList/TrackList";
 
 export default function Playlist({
-  playListName,
+  playlistName,
   playlistTracks,
   onRemove,
   onNameChange,
@@ -16,7 +16,11 @@ export default function Playlist({
 
   return (
     <div className="Playlist">
-      <input placeholder={"New Playlist"} onChange={handleNameChange} />
+      <input
+        placeholder="New Playlist"
+        onChange={handleNameChange}
+        value={playlistName}
+      />
       <TrackList tracks={playlistTracks} onRemove={onRemove} isRemoval={true} />
       <button className="Playlist-save" onClick={onSave}>
         SAVE TO SPOTIFY
