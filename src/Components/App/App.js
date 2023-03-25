@@ -9,7 +9,7 @@ import Spotify from "../../util/Spotify";
 
 export default function App() {
   const [searchResults, setSearchResults] = useState([]);
-  const [playlistName, setPlaylistName] = useState("New Playlist");
+  const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [term, setTerm] = useState("");
 
@@ -44,7 +44,7 @@ export default function App() {
       return;
     }
     Spotify.savePlaylist(playlistName, trackUris).then(
-      setPlaylistName("New Playlsit"),
+      setPlaylistName(""),
       setPlaylistTracks([])
     );
     alert("Your playlist has been saved");
