@@ -1,4 +1,4 @@
-const clientId = "573610200a7948589d19a98ba8dcbc7a";
+const clientId = "6e2ee35bf75a4c0b9d9e0b05f6d1c8f6";
 const redirectUri = "http://localhost:3000/callback";
 let accessToken;
 
@@ -67,20 +67,25 @@ const Spotify = {
         return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
           headers: headers,
           method: "POST",
-          body: JSON.springify({ name: name })
-            .then((response) => response.json())
-            .then((jsonResponse) => {
-              const playlistId = jsonResponse.id;
-              return fetch(
-                `https://api.spotify.com//v1/users/${userId}/playlists/${playlistId}/tracks`,
-                {
-                  headers: headers,
-                  method: "POST",
-                  body: JSON.stringify({ uris: trackUris }),
-                }
-              );
-            }),
-        });
+          body: JSON.stringify({ name: name }),
+        })
+          .then((response) => response.json())
+          .then((jsonResponse) => {
+            const playlistId = jsonResponse.id;
+            return fetch(
+              `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
+
+              {
+                headers: headers,
+                method: "POST",
+                body: JSON.stringify({ uris: trackUris }),
+              }
+            )
+              .then((response) => console.log("Items added to playlist"))
+              .catch((error) => {
+                console.log("Error while adding songs to playlist");
+              });
+          });
       });
   },
 };
