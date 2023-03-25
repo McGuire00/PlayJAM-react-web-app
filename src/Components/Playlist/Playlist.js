@@ -16,7 +16,7 @@ export default function Playlist({
 
   return (
     <div className="Playlist">
-      <input placeHolder={"New Playlist"} onChange={handleNameChange} />
+      <input placeholder={"New Playlist"} onChange={handleNameChange} />
       <TrackList tracks={playlistTracks} onRemove={onRemove} isRemoval={true} />
       <button className="Playlist-save" onClick={onSave}>
         SAVE TO SPOTIFY
