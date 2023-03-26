@@ -18,7 +18,7 @@ export default function Track({ track, key, onAdd, onRemove, isRemoval }) {
           <img src={this.props.track.image} alt="#" />
         </p> */}
         <p>
-          <img src={track.image} alt="#" />
+          <img src={track.image} alt={`Album art for ${track.artist}`} />
           {track.artist} | {track.album}
         </p>
       </div>
