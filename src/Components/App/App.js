@@ -11,7 +11,6 @@ export default function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
-  const [term, setTerm] = useState("");
 
   function addTrack(track) {
     if (playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
