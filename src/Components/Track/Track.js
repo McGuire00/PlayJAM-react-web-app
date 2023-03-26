@@ -31,7 +31,6 @@ export default function Track({ track, key, onAdd, onRemove, isRemoval }) {
           +
         </button>
       )}
-      {/* {renderAction()} */}
     </div>
   );
 }
