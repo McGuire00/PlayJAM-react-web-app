@@ -11,6 +11,7 @@ export default function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [playlist, setPlaylist] = useState("");
 
   useEffect(() => {
     Spotify.getAccessToken();
@@ -53,6 +54,10 @@ export default function App() {
     alert("Your playlist has been saved");
   }
 
+  function handlePlaylistChange(e) {
+    setPlaylist(e.target.value);
+  }
+
   return (
     <div>
       <h1>
@@ -61,12 +66,17 @@ export default function App() {
       <div className="App">
         {/* <SearchBar onSearch={this.search} /> */}
         <div className="App-playlist">
-          <SearchBar onSearch={search} />
+          <SearchBar
+            onSearch={search}
+            handlePlaylistChange={handlePlaylistChange}
+          />
+          {console.log(playlist)}
           <SearchResults searchResults={searchResults} onAdd={addTrack} />
 
           <Playlist
             playlistName={playlistName}
             playlistTracks={playlistTracks}
+            playlist={playlist}
             onRemove={removeTrack}
             onNameChange={updatePlaylistName}
             onSave={savePlaylist}
