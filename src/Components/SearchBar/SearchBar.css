@@ -1,14 +1,20 @@
-.SearchBar {
+
+.SearchBar, .container {
   display: flex;
   flex-direction: column;
   order: 1;
   align-items: center;
   justify-content: center;
   padding-top: 10px;
-  /* margin-bottom: 6.33rem; */
+  margin-bottom: 6.33rem;
   margin-bottom: 0;
 }
 
+.radio {
+  display: flex;
+  column-gap: 10px;
+  justify-content: space-between;
+}
 .SearchBar input {
   width: 287px;
   padding: 0.88rem 0;
