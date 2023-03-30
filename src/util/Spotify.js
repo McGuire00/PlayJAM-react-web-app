@@ -1,5 +1,4 @@
-const clientId = "6e2ee35bf75a4c0b9d9e0b05f6d1c8f6";
-// const clientId = process.env.REACT_APP_PLAYJAM_CLIENT_ID;
+const clientId = process.env.REACT_APP_PLAYJAM_CLIENT_ID;
 const redirectUri = "http://localhost:3000/callback";
 let userId;
 let accessToken;
