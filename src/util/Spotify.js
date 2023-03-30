@@ -1,5 +1,7 @@
 const clientId = "6e2ee35bf75a4c0b9d9e0b05f6d1c8f6";
+// const clientId = process.env.REACT_APP_PLAYJAM_CLIENT_ID;
 const redirectUri = "http://localhost:3000/callback";
+let userId;
 let accessToken;
 
 const Spotify = {
@@ -87,6 +89,51 @@ const Spotify = {
               });
           });
       });
+  },
+  getCurrentUserId() {
+    if (userId) {
+      return userId;
+    }
+
+    const accessToken = Spotify.getAccessToken();
+
+    return fetch("https://api.spotify.com/v1/me", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((jsonResponse) => {
+        userId = jsonResponse.id;
+        return userId;
+      })
+      .catch(function (err) {
+        console.log("Fetch problem line 47: " + err.message);
+      });
+  },
+  getUserPlaylists() {
+    const accessToken = Spotify.getAccessToken();
+    const headers = {
+      Authorization: `Bearer ${accessToken}`,
+    };
+
+    return Promise.resolve(Spotify.getCurrentUserId()).then((response) => {
+      userId = response;
+      return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+        headers: headers,
+        method: "GET",
+      })
+        .then((response) => response.json())
+        .then((jsonResponse) => {
+          if (!jsonResponse.items) {
+            return [];
+          }
+          return jsonResponse.items.map((playlist) => ({
+            playlistName: playlist.name,
+            playlistId: playlist.id,
+          }));
+        });
+    });
   },
 };
 
