@@ -134,6 +134,28 @@ const Spotify = {
         });
     });
   },
+  getPlaylistDetails() {
+    let playlistId = "691CzznJ3eIblys5jyCmgF";
+    const accessToken = Spotify.getAccessToken();
+    const headers = {
+      Authorization: `Bearer ${accessToken}`,
+    };
+
+    return fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+      headers: headers,
+    })
+      .then((response) => response.json())
+      .then((jsonResponse) => {
+        if (!jsonResponse.items) {
+          return [];
+        }
+
+        return jsonResponse.items.map((playlist) => console.log(playlist));
+      })
+      .catch((error) => {
+        console.log("Error getting user's playlists");
+      });
+  },
 };
 
 export default Spotify;
