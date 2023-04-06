@@ -1,0 +1,69 @@
+/* style the component container */
+.accordion-container {
+    width: 100%;
+    /* background-color: #efefef; */
+    box-shadow: 8px 8px 7px #454545;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 3px solid black;
+  }
+  
+  /* style the title button of the accordion menu */
+  .accordion-title {
+    width: 100%;
+    height: 75px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: #ffda75;
+  }
+  
+  .content {
+    height: 0px;
+    transition: height 0.3s ease-in;
+  }
+  
+  /*  
+  The .show_content class is added and removed from the accordion_content div in the JSX to achieve the show and hide effect for the content when the accordion is clicked.
+  */
+  .show-content {
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+    transition: height 0.3s ease-out;
+  }
+  
+  /* Style the list item container divs */
+  .list-item {
+    width: 100%;
+    height: 50px;
+    padding-left: 15px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-top: 1px solid #a8a8a8;
+  }
+  
+  /* Style the first lit item top border, makes the title look encloses without overlapping borders when the accordion is closed */
+  .content .list-item:first-of-type {
+    border-top: 3px solid black;
+  }
+  
+  /* Style the list items p text */
+  .list-item p {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+  }
+  
+  /* Style list_item text when list_item_container is hovered */
+  .list-item:hover > p {
+    color: #0072c9;
+  }
