@@ -19,9 +19,9 @@ export default function Accordion(props) {
 
   function renderAccordion() {
     if (playlistDetails) {
-      return playlistDetails.map((playlistTrack) => {
+      return playlistDetails.map((playlistTrack, index) => {
         return (
-          <div className="list-item">
+          <div className="list-item" key={index}>
             <p>{playlistTrack.songName}</p>
           </div>
         );
