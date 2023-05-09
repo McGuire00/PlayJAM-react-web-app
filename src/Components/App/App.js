@@ -11,10 +11,12 @@ export default function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
-  const [playlist, setPlaylist] = useState("");
+  const [playlistType, setPlaylistType] = useState("New Playlist");
+  const [playlists, setPlaylists] = useState();
 
   useEffect(() => {
     Spotify.getAccessToken();
+    getUserPlaylists();
   }, []);
 
   function addTrack(track) {
@@ -54,8 +56,14 @@ export default function App() {
     alert("Your playlist has been saved");
   }
 
+  function getUserPlaylists() {
+    Spotify.getUserPlaylists().then((playlists) => {
+      setPlaylists(playlists);
+    });
+  }
+
   function handlePlaylistChange(e) {
-    setPlaylist(e.target.value);
+    setPlaylistType(e.target.value);
   }
 
   return (
@@ -64,19 +72,19 @@ export default function App() {
         PLAY<span className="highlight">jam</span>
       </h1>
       <div className="App">
-        {/* <SearchBar onSearch={this.search} /> */}
         <div className="App-playlist">
           <SearchBar
             onSearch={search}
             handlePlaylistChange={handlePlaylistChange}
+            playlistSelection={playlistType}
           />
-          {console.log(playlist)}
           <SearchResults searchResults={searchResults} onAdd={addTrack} />
 
           <Playlist
+            playlistSelection={playlistType}
+            playlists={playlists}
             playlistName={playlistName}
             playlistTracks={playlistTracks}
-            playlist={playlist}
             onRemove={removeTrack}
             onNameChange={updatePlaylistName}
             onSave={savePlaylist}
