@@ -5,6 +5,7 @@ import PlaylistList from "../PlaylistList/PlaylistList";
 import TrackList from "../TrackList/TrackList";
 
 export default function Playlist({
+  playlistDetails,
   playlists,
   playlistSelection,
   playlistName,
@@ -12,6 +13,7 @@ export default function Playlist({
   onRemove,
   onNameChange,
   onSave,
+  getPlaylistDetails,
 }) {
   let playlistType =
     playlistSelection === "New Playlist" ? "New Playlist" : "User's Playlist";
@@ -31,7 +33,11 @@ export default function Playlist({
       );
     } else {
       return (
-        <PlaylistList playlists={playlists} playlistDetails={playlistDetails} />
+        <PlaylistList
+          playlists={playlists}
+          playlistDetails={playlistDetails}
+          getPlaylistDetails={getPlaylistDetails}
+        />
       );
     }
   }
