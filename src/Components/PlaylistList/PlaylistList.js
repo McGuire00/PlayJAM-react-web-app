@@ -1,20 +1,15 @@
 import React from "react";
 import "./PlaylistList.css";
 
-import PlaylistItem from "../PlaylistItem/PlaylistItem";
+import Accordion from "../Accordion/Accordion";
 
 export default function PlaylistList(props) {
   return (
     <div className="PlaylistList">
-      {props.playlists &&
-        props.playlists.map((playlist, index) => {
-          return (
-            <PlaylistItem
-              key={playlist.playlistId}
-              name={playlist.playlistName}
-            />
-          );
-        })}
+      {props.playlists.map((playlist, index) => {
+        let playlistId = playlist.playlistId;
+        return <Accordion key={index} playlistId={playlistId} />;
+      })}
     </div>
   );
 }
