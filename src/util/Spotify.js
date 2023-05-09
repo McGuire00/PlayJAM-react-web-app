@@ -134,8 +134,8 @@ const Spotify = {
         });
     });
   },
-  getPlaylistDetails() {
-    let playlistId = "691CzznJ3eIblys5jyCmgF";
+  getPlaylistDetails(playlistId) {
+    // let playlistId = "691CzznJ3eIblys5jyCmgF";
     const accessToken = Spotify.getAccessToken();
     const headers = {
       Authorization: `Bearer ${accessToken}`,
@@ -150,7 +150,12 @@ const Spotify = {
           return [];
         }
 
-        return jsonResponse.items.map((playlist) => console.log(playlist));
+        return jsonResponse.items.map((playlist) => ({
+          songName: playlist.track.name,
+          albumn: playlist.track.album.name,
+          image: playlist.track.album.images[2].url,
+          artist: playlist.track.album.artists[0].name,
+        }));
       })
       .catch((error) => {
         console.log("Error getting user's playlists");
