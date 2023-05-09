@@ -36,29 +36,11 @@ export default function Accordion(props) {
           className="accordion-title"
           onClick={() => setIsVisible(!isVisible)}
         >
-          {"Playlist #1"}
+          {props.playlistName}
         </div>
       </div>
       <div className={`content ${isVisible ? "show-content" : ""}`}>
         {renderAccordion()}
-        {/* <div className="list-item">
-          <p>Item 1</p>
-        </div>
-        <div className="list-item">
-          <p>Item 2</p>
-        </div>
-        <div className="list-item">
-          <p>Item 3</p>
-        </div>
-        <div className="list-item">
-          <p>Item 1</p>
-        </div>
-        <div className="list-item">
-          <p>Item 2</p>
-        </div>
-        <div className="list-item">
-          <p>Item 3</p>
-        </div> */}
       </div>
     </div>
   );

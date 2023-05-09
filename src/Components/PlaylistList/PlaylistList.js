@@ -8,7 +8,14 @@ export default function PlaylistList(props) {
     <div className="PlaylistList">
       {props.playlists.map((playlist, index) => {
         let playlistId = playlist.playlistId;
-        return <Accordion key={index} playlistId={playlistId} />;
+        let playlistName = playlist.playlistName;
+        return (
+          <Accordion
+            key={index}
+            playlistId={playlistId}
+            playlistName={playlistName}
+          />
+        );
       })}
     </div>
   );
