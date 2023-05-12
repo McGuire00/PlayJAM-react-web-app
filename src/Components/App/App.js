@@ -67,7 +67,7 @@ export default function App() {
   }
 
   return (
-    <div>
+    <>
       <h1>
         PLAY<span className="highlight">jam</span>
       </h1>
@@ -91,6 +91,6 @@ export default function App() {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 }
