@@ -15,6 +15,10 @@
   scrollbar-width: none;
 }
 
+h2 {
+  border-bottom: 1px solid #6f6f6f;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
