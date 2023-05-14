@@ -135,7 +135,6 @@ const Spotify = {
     });
   },
   getPlaylistDetails(playlistId) {
-    // let playlistId = "691CzznJ3eIblys5jyCmgF";
     const accessToken = Spotify.getAccessToken();
     const headers = {
       Authorization: `Bearer ${accessToken}`,
